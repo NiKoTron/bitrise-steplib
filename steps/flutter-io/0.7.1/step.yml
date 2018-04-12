@@ -1,0 +1,57 @@
+title: Flutter.io
+summary: |
+  Configure build for flutter.io
+description: |
+  Help to configure build for flutter.io
+website: https://github.com/NiKoTron/bitrise-step-flutter-io
+source_code_url: https://github.com/NiKoTron/bitrise-step-flutter-io
+support_url: https://github.com/NiKoTron/bitrise-step-flutter-io/issues
+published_at: 2018-04-12T22:18:41.428852778+03:00
+source:
+  git: https://github.com/NiKoTron/bitrise-step-flutter-io.git
+  commit: fc2d318a09b107bce9979847cf3cce62c3c1a230
+host_os_tags:
+- osx-10.10
+- ubuntu-16.04
+type_tags:
+- installer
+toolkit:
+  bash:
+    entry_file: step.sh
+deps:
+  brew:
+  - name: git
+  apt_get:
+  - name: git
+is_requires_admin_user: false
+is_always_run: false
+is_skippable: false
+run_if: ""
+inputs:
+- debug_build: "no"
+  opts:
+    description: Add debug flag to android/local.property you must have android/ directory.
+    is_expand: true
+    is_required: false
+    summary: Add debug flag to local.properties.
+    title: Debug build
+    value_options:
+    - "no"
+    - "yes"
+- flutter_branch: dev
+  opts:
+    description: Which branch of flutter framework use to download.
+    is_expand: true
+    is_required: false
+    summary: Flutter branch to clone.
+    title: Flutter.io branch
+    value_options:
+    - master
+    - alpha
+    - beta
+    - dev
+outputs:
+- FLUTTER_HOME: null
+  opts:
+    summary: Flutter.io home directory
+    title: Flutter.io home
